@@ -11,9 +11,13 @@ const StyledHeader = styled.header`
 const StyledNav = styled.nav`
   position: fixed;
   width: 100%;
-  padding: 15px 0px;
+  padding: 15px 30px;
   background-color: var(--bg-secondary);
   z-index: 999;
+
+  @media (min-width: 900px) {
+    padding: 15px 0px;
+  }
 `;
 
 const StyleLinks = styled.div`
@@ -58,7 +62,7 @@ const StylesHero = styled.div`
   min-height: 420px;
   padding: 8rem 0 6rem;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 
@@ -71,6 +75,10 @@ const StylesHero = styled.div`
 
   span {
     color: #617bff;
+  }
+
+  @media (min-width: 900px) {
+    flex-direction: row;
   }
 `;
 
@@ -97,7 +105,7 @@ export default function Header() {
         </StyleLinks>
       </StyledNav>
       <StylesHero className="container">
-        <Code code={JSON.stringify(json, null, 2)} />
+        <Code code={json} language={"javascript"} />
         <h1>
           Développeur web <span>Full Stack</span> junior
         </h1>
@@ -106,7 +114,7 @@ export default function Header() {
   );
 }
 
-const json = {
+const json = `{
   version: "1.0.4",
   identity: {
     firstname: "Alban",
@@ -123,5 +131,5 @@ const json = {
   contact: {
     email: "alban.care@gmail.com",
     telephone: "+336 41 08 92 55",
-  },
-};
+  }
+}`;
