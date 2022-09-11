@@ -14,9 +14,31 @@ const StyledNav = styled.nav`
   padding: 15px 30px;
   background-color: var(--bg-secondary);
   z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--color-primary-hover);
+  }
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--color-primary);
+  }
+
+  a:hover svg {
+    fill: var(--color-primary-hover);
+  }
 
   @media (min-width: 900px) {
-    padding: 15px 0px;
+    /* padding: 15px 30px; */
   }
 `;
 
@@ -35,25 +57,6 @@ const StyleLinks = styled.div`
     font-size: 1.475rem;
     padding-left: 4rem;
     cursor: pointer;
-  }
-
-  li a {
-    color: var(--color-primary);
-    text-decoration: none;
-  }
-
-  li a:hover {
-    color: var(--color-primary-hover);
-  }
-
-  li svg {
-    width: 2rem;
-    height: 2rem;
-    fill: var(--color-primary);
-  }
-
-  li a:hover svg {
-    fill: var(--color-primary-hover);
   }
 `;
 
@@ -86,6 +89,16 @@ export default function Header() {
   return (
     <StyledHeader>
       <StyledNav>
+        <a
+          href={"https://github.com/2015tb145-Acare/gatsby-blob"}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg>
+            <use xlinkHref="#github" />
+          </svg>{" "}
+          <span>gatsby-blob repo</span>
+        </a>
         <StyleLinks>
           <ul className="container">
             <li>
