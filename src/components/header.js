@@ -17,6 +17,7 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-height: 54px;
 
   a {
     color: var(--color-primary);
@@ -37,14 +38,19 @@ const StyledNav = styled.nav`
     fill: var(--color-primary-hover);
   }
 
-  @media (min-width: 900px) {
-    /* padding: 15px 30px; */
+  span {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    span {
+      display: inline;
+    }
   }
 `;
 
 const StyleLinks = styled.div`
   ul {
-    width: 100%;
     text-align: right;
     margin: auto;
   }
@@ -54,33 +60,43 @@ const StyleLinks = styled.div`
     text-transform: uppercase;
     vertical-align: middle;
     font-weight: 400;
-    font-size: 1.475rem;
-    padding-left: 4rem;
+    font-size: 1rem;
+    padding-left: 1rem;
     cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    li {
+      font-size: 1.475rem;
+      padding-left: 4rem;
+    }
+    span {
+      display: inline-block;
+    }
   }
 `;
 
 const StylesHero = styled.div`
   width: 100%;
-  min-height: 420px;
-  padding: 8rem 0 6rem;
+  height: 100%;
+  padding: 6rem 0 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 
   h1 {
+    width: 100%;
     margin: 1rem 0;
-    padding: 1rem 0;
     text-align: center;
     flex: auto;
   }
 
   span {
-    color: #617bff;
+    color: var(--color-blue);
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1200px) {
     flex-direction: row;
   }
 `;
@@ -102,23 +118,23 @@ export default function Header() {
         <StyleLinks>
           <ul className="container">
             <li>
-              <Link to="#home">
+              <Link to="/">
                 <svg>
                   <use xlinkHref="#bi-home" />
                 </svg>
               </Link>
             </li>
             <li>
-              <Link to="#skills">Snippets</Link>
+              <Link to="/snippets">Snippets</Link>
             </li>
             <li>
-              <Link to="#experience">Goodies</Link>
+              <Link to="/goodies">Goodies</Link>
             </li>
           </ul>
         </StyleLinks>
       </StyledNav>
       <StylesHero className="container">
-        <Code code={json} language={"javascript"} />
+        <Code code={code} language={"javascript"} />
         <h1>
           Développeur web <span>Full Stack</span> junior
         </h1>
@@ -127,7 +143,7 @@ export default function Header() {
   );
 }
 
-const json = `{
+const code = `{
   version: "1.0.4",
   identity: {
     firstname: "Alban",
@@ -143,6 +159,5 @@ const json = `{
   },
   contact: {
     email: "alban.care@gmail.com",
-    telephone: "+336 41 08 92 55",
   }
 }`;
