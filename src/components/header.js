@@ -134,7 +134,7 @@ export default function Header() {
         </StyleLinks>
       </StyledNav>
       <StylesHero className="container">
-        <Code code={json} language={"javascript"} />
+        <Code code={code} language={"javascript"} />
         <h1>
           Développeur web <span>Full Stack</span> junior
         </h1>
@@ -143,7 +143,7 @@ export default function Header() {
   );
 }
 
-const json = `{
+const code = `{
   version: "1.0.4",
   identity: {
     firstname: "Alban",
@@ -159,6 +159,5 @@ const json = `{
   },
   contact: {
     email: "alban.care@gmail.com",
-    telephone: "+336 41 08 92 55",
   }
 }`;
